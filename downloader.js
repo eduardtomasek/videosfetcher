@@ -10,7 +10,7 @@ program.option('-f, --file <path>', 'Definition file', null)
 program.parse(process.argv)
 
 const DEFAULT_OUTPUT = '%(upload_date)s - %(title)s (%(uploader)s,%(id)s)'
-const FORMAT = 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio'
+const DEFAULT_FORMAT = 'bestvideo[height<=960][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=960]+bestaudio'
 
     ;
 (async function main () {
@@ -49,7 +49,7 @@ const FORMAT = 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio'
 
             const ydlOptions = {
                 downloadArchive: 'archive.txt',
-                format: format || FORMAT,
+                format: format || DEFAULT_FORMAT,
                 ignoreErrors: true,
                 output: output || DEFAULT_OUTPUT,
                 writeAutoSub: subs || null,

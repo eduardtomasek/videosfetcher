@@ -104,3 +104,6 @@ dist
 .tern-port
 
 definitions.json
+def.json
+
+.vscode
