@@ -1,0 +1,25 @@
+{
+  "name": "videosfetcher",
+  "version": "1.0.0",
+  "description": "[SundayProjects] Just wrapper around yt-dlp (-exec)",
+  "main": "downloader.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eduardtomasek/videosfetcher.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eduardtomasek/videosfetcher/issues"
+  },
+  "homepage": "https://github.com/eduardtomasek/videosfetcher#readme",
+  "dependencies": {
+    "@borodutch-labs/yt-dlp-exec": "^2.0.0",
+    "commander": "^8.3.0",
+    "fs-extra": "^10.0.0",
+    "lodash": "^4.17.21"
+  }
+}

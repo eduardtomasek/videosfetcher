@@ -1,12 +1,3 @@
-# videosfetcher
-[SundayProjects] Just wrapper around yt-dlp
-
-Made for periodical channel or playlist backup.
-
-# Usage
-```node downloader.js -f definitions.json```
-## Definitions file
-```json
 [
     {
         "name": "RSD Academy - Basic Electronics",
@@ -29,4 +20,3 @@ Made for periodical channel or playlist backup.
         ]
     }
 ]
-```
