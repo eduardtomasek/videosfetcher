@@ -10,10 +10,11 @@ program.parse(process.argv)
 
 const DEFAULT_OUTPUT = '%(upload_date)s - %(title)s (%(uploader)s,%(id)s)'
 const DEFAULT_FORMAT = 'bestvideo[height<=960][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=960]+bestaudio'
+const DEFAULT_USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:68.0) Gecko/20100101 Firefox/68.0'
 
     ;
 (async function main () {
-    let definitions = null
+    let definitions = []
 
     const options = program.opts()
 
@@ -40,6 +41,7 @@ const DEFAULT_FORMAT = 'bestvideo[height<=960][ext=mp4]+bestaudio[ext=m4a]/bestv
         const dirPath = path.join(d.path, d.name)
         const output = d.fileTemplate
         const subs = Array.isArray(d.subtitles) && d.subtitles.length > 0 ? true : false
+        const subLang = subs && Array.isArray(d.subtitles) ? d.subtitles.join(',') : null
         const format = d.format
 
         try {
@@ -52,9 +54,9 @@ const DEFAULT_FORMAT = 'bestvideo[height<=960][ext=mp4]+bestaudio[ext=m4a]/bestv
                 ignoreErrors: true,
                 output: output || DEFAULT_OUTPUT,
                 writeAutoSub: subs || null,
-                subLang: subs ? d.subtitles.join(',') : null,
+                subLang,
                 mergeOutputFormat: 'mp4',
-                userAgent: 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:68.0) Gecko/20100101 Firefox/68.0'
+                userAgent: DEFAULT_USER_AGENT,
             }
 
             await ydl(d.url, ydlOptions, {
